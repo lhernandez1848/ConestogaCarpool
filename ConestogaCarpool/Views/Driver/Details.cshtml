@@ -1,0 +1,33 @@
+﻿@model ConestogaCarpool.Models.Driver
+
+@{
+    ViewData["Title"] = "Driver Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="allBodyLeft">
+    <div class="transparentBack">
+        <h2>
+            Driver Details
+            <a asp-action="Edit" asp-route-DriverId="@Model.DriverId"><i id="editIcon" class="fas fa-edit"></i></a>
+        </h2>
+
+        <div class="detailView">
+            <hr />
+            <label class="detailLabels">
+                @Html.DisplayNameFor(model => model.Experience):
+            </label>
+            <label id="textLabels">@Html.DisplayFor(model => model.Experience)</label>
+            <br />
+
+            <label class="detailLabels">
+                @Html.DisplayNameFor(model => model.LicenceClass):
+            </label>
+            <label id="textLabels">@Html.DisplayFor(model => model.LicenceClass.LicenceClass1)</label>
+            <br />
+        </div>
+        <div>
+            <a asp-action="Index" id="btnAllShared">Back to List</a>
+        </div>
+    </div>
+</div>

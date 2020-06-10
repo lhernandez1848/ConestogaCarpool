@@ -1,0 +1,37 @@
+﻿@model ConestogaCarpool.Models.User
+
+@{
+    ViewData["Title"] = "Profile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <div class="allBodyLeft">
+        <div class="transparentBack">
+            <h2>Profile</h2>
+
+            <h4>
+                @Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.LastName)
+                <a asp-action="Edit" asp-route-UserId="@Model.UserId"><i id="editIcon" class="fas fa-edit"></i></a>
+            </h4>
+            <label class="detailLabels">
+                @Html.DisplayNameFor(model => model.Username):
+            </label>
+            <label id="textLabels">@Html.DisplayFor(model => model.Username)</label>
+            <br /><br />
+
+            <label class="detailLabels">
+                @Html.DisplayNameFor(model => model.Email):
+            </label>
+            <label id="textLabels">@Html.DisplayFor(model => model.Email)</label>
+            <br /><br />
+            <hr />
+            <h3>Password Settings</h3>
+            <br />
+            <a asp-action="EditPassword" asp-route-UserId="@Model.UserId">Change Password</a>
+            <br />
+            <hr />
+            <h3>Delete Account</h3>
+            <br />
+            <a asp-action="Delete" asp-route-UserId="@Model.UserId">Permanently Remove Your Account</a>
+        </div>
+    </div>

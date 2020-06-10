@@ -1,0 +1,75 @@
+﻿@model ConestogaCarpool.Models.Post
+@using Microsoft.AspNetCore.Http;
+
+@{
+    ViewData["Title"] = "Send Request";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Location"] = Context.Session.GetString("Location");
+    ViewData["Destination"] = Context.Session.GetString("Destination");
+    ViewData["PostId"] = Context.Session.GetString("PostId");
+}
+<div class="allBodyLeft">
+    <div class="transparentBack">
+        <h2>Send Request</h2>
+
+        <hr />
+        <label class="detailLabels">
+            @Html.DisplayNameFor(model => model.Location):
+        </label>
+        <label id="textLabels">@Html.DisplayFor(model => model.Location)</label>
+        <br />
+
+        <label class="detailLabels">
+            @Html.DisplayNameFor(model => model.Destination):
+        </label>
+        <label id="textLabels">@Html.DisplayFor(model => model.Destination)</label>
+        <br />
+
+        <label class="detailLabels">
+            @Html.DisplayNameFor(model => model.Date):
+        </label>
+        <label id="textLabels">@Html.DisplayFor(model => model.Date)</label>
+        <br />
+
+        <label class="detailLabels">
+            @Html.DisplayNameFor(model => model.Time):
+        </label>
+        <label id="textLabels">@Html.DisplayFor(model => model.Time)</label>
+        <br />
+
+        <label class="detailLabels">
+            @Html.DisplayNameFor(model => model.Driver):
+        </label>
+        <label id="textLabels">@Html.DisplayFor(model => model.Driver.User.Username)</label>
+        <br />
+
+        <label class="detailLabels">
+            @Html.DisplayNameFor(model => model.Driver.LicenceClass):
+        </label>
+        <label id="textLabels">@Html.DisplayFor(model => model.Driver.LicenceClass.LicenceClass1)</label>
+        <br />
+
+        <label class="detailLabels">
+            @Html.DisplayNameFor(model => model.Driver.Experience):
+        </label>
+        <label id="textLabels">@Html.DisplayFor(model => model.Driver.Experience)</label>
+        <br />
+
+        <label class="detailLabels">
+            @Html.DisplayNameFor(model => model.Vehicle):
+        </label>
+        <label id="textLabels">@Html.DisplayFor(model => model.Vehicle.Make)</label>
+        <br />
+
+        <label class="detailLabels">
+            @Html.DisplayNameFor(model => model.PostStatus):
+        </label>
+        <label id="textLabels">@Html.DisplayFor(model => model.PostStatus.PostStatusDescription)</label>
+    </div>
+    <div>
+        <a asp-controller="Request" asp-action="Create" asp-route-PostId=@ViewBag.PostId asp-route-DriverEmail="@Model.Driver.User.Email"
+           id="btnAllShared">Send Request</a>
+        <a asp-controller="Post" asp-action="PassengerIndex" asp-route-Location=@ViewData["Location"]
+           asp-route-Destination=@ViewData["Destination"] id="btnAllShared">Back to List</a>
+    </div>
+</div>

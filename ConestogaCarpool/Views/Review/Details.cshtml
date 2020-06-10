@@ -1,0 +1,57 @@
+﻿@model ConestogaCarpool.Models.Review
+
+@{
+    ViewData["Title"] = "Review Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="allBodyLeft">
+    <div class="transparentBack">
+        <h2>
+            Review Details
+            @if (Model.Driver.User.Username != ViewBag.Username)
+            {
+            <a asp-action="Edit" asp-route-ReviewId="@Model.ReviewId"
+               asp-route-RideId="@Model.RideId" asp-route-PassengerId="@Model.PassengerId"
+               asp-route-DriverId="@Model.DriverId"><i id="editIcon" class="fas fa-edit"></i></a>
+               }
+        </h2>
+
+        <div class="detailView">
+            <hr />
+            <br />
+            <label class="detailLabels">
+                @Html.DisplayNameFor(model => model.Rating):
+            </label>
+            <label id="textLabels">@Html.DisplayFor(model => model.Rating)</label>
+            <br />
+
+            <label class="detailLabels">
+                @Html.DisplayNameFor(model => model.Comment):
+            </label>
+            <label id="textLabels">@Html.DisplayFor(model => model.Comment)</label>
+            <br />
+
+            <label class="detailLabels">
+                @Html.DisplayNameFor(model => model.Driver):
+            </label>
+            <label id="textLabels">@Html.DisplayFor(model => model.Driver.User.Username)</label>
+            <br />
+
+            <label class="detailLabels">
+                @Html.DisplayNameFor(model => model.Ride):
+            </label>
+            <label id="textLabels">@Html.DisplayFor(model => model.Ride.RideId)</label>
+            <br /><br />
+            @if (Model.Driver.User.Username != ViewBag.Username)
+            {
+                <hr />
+                <h3>Delete Review</h3>
+                <br />
+                <a asp-action="Delete" asp-route-ReviewId="@Model.ReviewId">Delete this Review</a>
+                <br />
+            }
+
+        </div>
+    </div>
+</div>

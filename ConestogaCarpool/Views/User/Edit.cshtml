@@ -1,0 +1,48 @@
+﻿@model ConestogaCarpool.Models.User
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="allBodyLeft">
+    <h2>Edit Profile Information</h2>
+
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Edit">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="UserId" />
+                <div class="form-group">
+                    <label asp-for="Username" class="textboxLabel"></label>
+                    <input asp-for="Username" id="textBoxes" name="Username" />
+                    <span asp-validation-for="Username" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="FirstName" class="textboxLabel"></label>
+                    <input asp-for="FirstName" id="textBoxes" name="FirstName"/>
+                    <span asp-validation-for="FirstName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="LastName" class="textboxLabel"></label>
+                    <input asp-for="LastName" id="textBoxes" name="LastName"/>
+                    <span asp-validation-for="LastName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Save" id="btnAllShared" />
+                    <a asp-action="Index" id="btnAllShared">Back to List</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+<style>
+    .field-validation-error {
+        color: #3dd53e;
+    }
+</style>

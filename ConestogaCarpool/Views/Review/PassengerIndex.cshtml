@@ -1,0 +1,57 @@
+﻿@model IEnumerable<ConestogaCarpool.Models.Review>
+
+@{
+    ViewData["Title"] = "Passenger Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="tableBody">
+    <h2>@ViewBag.Username's Reviews</h2>
+
+    <p class="tempData">@TempData["Message"]</p>
+    @if (TempData["Message"] == null)
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.RideId)
+                    </th>
+                    <th>
+                        Driver
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Rating)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Comment)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            <div class="tooltip">
+                                <a asp-action="Details" asp-route-ReviewId="@item.ReviewId">
+                                    @Html.DisplayFor(modelItem => item.RideId)
+                                </a>
+                                <span class="tooltiptext">Click for Details</span>
+                            </div>
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Driver.User.Username)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Rating)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Comment)
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>

@@ -1,0 +1,86 @@
+﻿/* User View*/
+/* index body */
+.homeView {
+    text-align: center;
+    position: center;
+    margin-top: 10em;
+}
+
+/* buttons on index page*/
+.homeButtons a {
+    background-color: rgba(42, 123, 128, 0.75);
+    border: none;
+    color: rgba(255, 255, 255, 0.9);
+    opacity: 0.85;
+    padding: 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 30px;
+    margin: 5%;
+    cursor: pointer;
+    height: 7em;
+    width: 7em;
+    border-radius: 50%;
+}
+
+    .homeButtons a:hover {
+        text-decoration: none;
+        opacity: 0.5;
+    }
+
+#btnPassenger {
+    background-image: url(../images/passenger.png);
+    background-repeat: no-repeat;
+    background-size: 70%;
+    background-position: center;
+}
+
+#btnDriver {
+    background-image: url(../images/driver.png);
+    background-repeat: no-repeat;
+    background-size: 75%;
+    background-position: center;
+    margin-left: 4em;
+}
+
+/* User - Passenger Options */
+/* buttons */
+#passengerIndex {
+    text-align: center;
+    margin-top: 10em;
+}
+
+.passengerOptions a {
+    background-color: rgba(69, 162, 158, 0.55);
+    color: rgba(255, 255, 255, 0.9);
+    text-align: center;
+    font-size: 1.3em;
+    display: inline-block;
+    padding-top: 5em;
+    margin: 0.1em;
+    text-decoration: none;
+    width: 10.5em;
+    height: 6em;
+}
+
+    .passengerOptions a:hover {
+        text-decoration: none;
+        opacity: 0.5;
+    }
+
+#btnPassOpt1 {
+    border-radius: 100% 0 0 0;
+}
+
+#btnPassOpt2 {
+    border-radius: 0 100% 0 0;
+}
+
+#btnPassOpt3 {
+    border-radius: 0 0 0 100%;
+}
+
+#btnPassOpt4 {
+    border-radius: 0 0 100% 0;
+}

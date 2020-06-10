@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Conestoga Carpool</title>
+    <link rel="stylesheet" href="~/css/SharedLayoutStyle.css" />
+    <link rel="stylesheet" href="~/css/UserStyleSheet.css" />
+    <link rel="stylesheet" href="~/css/DriverStyleSheet.css" />
+    <link rel="icon" href="~/images/logo.png" type="image/png" sizes="16x20">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-fixed-top">
+            <div id="sideBar" class="sidebar">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+                <a asp-area="" asp-controller="User" asp-action="Index">Home</a>
+                <a asp-controller="User" asp-action="Details" asp-route-UserId="@ViewBag.UserId">Profile</a>
+                <a asp-area="" asp-controller="Home" asp-action="About">About</a>
+                <br />
+                <a asp-area="" asp-controller="User" asp-action="SignOut">Log Out</a>
+            </div>
+
+            <div class="menu">
+                <span style="font-size:30px;cursor:pointer;" onclick="openNav()">&#9776; </span>
+            </div>
+        </nav>
+
+        <script>
+            function openNav() {
+                document.getElementById("sideBar").style.width = "250px";
+                document.getElementById("main").style.marginLeft = "250px";
+                document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+            }
+
+            function closeNav() {
+                document.getElementById("sideBar").style.width = "0";
+                document.getElementById("main").style.marginLeft = "0";
+                document.body.style.backgroundColor = "white";
+            }
+        </script>
+    </header>
+
+    <main>
+        <div id="mainBody">
+            <partial name="_CookieConsentPartial" />
+
+            <div class="container body-content">
+                @RenderBody()
+            </div>
+        </div>
+    </main>
+    <footer id="footer">
+        <p>&copy; 2019 - Conestoga Carpool</p>
+    </footer>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

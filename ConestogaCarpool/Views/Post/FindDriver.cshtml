@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewData["Title"] = "FindDriver";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+    <div class="allBodyLeft">
+        <h2>Find Driver</h2>
+        <br />
+        <br />
+        <form asp-controller="Post" asp-action="PassengerIndex" method="get">
+
+            <label class="textboxLabel">Enter location: </label>
+            <input type="text" id="textBoxes" name="Location" />
+
+            <br />
+            <br />
+
+            <label class="textboxLabel">Enter destination: </label>
+            <input type="text" id="textBoxes" name="Destination" />
+
+            <br />
+            <br />
+
+            <div id="buttonGroup">
+                <input id="btnAllShared" type="submit" value="Find Driver" />
+                <a id="btnAllShared" asp-action="PassengerOptions" asp-controller="User">Cancel</a>
+            </div>
+        </form>
+</div>

@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewData["Title"] = "PassengerOptions";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="passengerIndex">
+
+    <h2>What do you want to do today?</h2>
+    <div class="passengerOptions">
+        <a asp-controller="Post" asp-action="FindDriver" id="btnPassOpt1" asp-route-UserId="@ViewBag.UserId">Find Driver</a>
+        <a asp-controller="Request" asp-action="PassengerIndex" id="btnPassOpt2" asp-route-PassengerId="@ViewBag.UserId">View Requests</a>
+        <br />
+        <a asp-controller="Ride" asp-action="PassengerIndex" id="btnPassOpt3" asp-route-PassengerId="@ViewBag.UserId">Ride History</a>
+        <a asp-controller="Review" asp-action="PassengerIndex" id="btnPassOpt4" asp-route-PassengerId="@ViewBag.UserId">Reviews</a>
+    </div>
+
+</div>

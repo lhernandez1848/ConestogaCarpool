@@ -1,0 +1,48 @@
+﻿@model ConestogaCarpool.Models.Ride
+
+@{
+    ViewData["Title"] = "RideDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="allBodyLeft">
+    <div class="transparentBack">
+        <h2>
+            Ride Details
+            <a asp-action="Edit" asp-route-RideId="@Model.RideId"><i id="editIcon" class="fas fa-edit"></i></a>
+        </h2>
+        <p class="tempData">@TempData["Message"]</p>
+        <div class="detailView">
+            <hr />
+            <br />
+            <h3>Ride with @Html.DisplayFor(model => model.Post.Driver.User.Username)</h3>
+            <label class="detailLabels">
+                @Html.DisplayNameFor(model => model.Post):
+            </label>
+            <label id="textLabels">@Html.DisplayFor(model => model.Post.Destination)</label>
+            <br />
+
+            <label class="detailLabels">
+                @Html.DisplayNameFor(model => model.Request):
+            </label>
+            <label id="textLabels">@Html.DisplayFor(model => model.Request.RequestId)</label>
+            <br />
+
+            <label class="detailLabels">
+                Ride Status:
+            </label>
+            <label id="textLabels">@Html.DisplayFor(model => model.RideStatus.RideStatusDescription)</label>
+            <br />
+
+        </div>
+
+        @if (Model.RideStatus.RideStatusDescription == "Completed")
+        {
+            <hr />
+            <h3>Add Feedback</h3>
+            <a asp-controller="Review" asp-action="Create" asp-route-RideId="@Model.RideId"
+               asp-route-PassengerId="@ViewBag.UserId"
+               asp-route-DriverId="@Model.Post.DriverId">Add Feedback</a>
+        }
+
+    </div>
+</div>

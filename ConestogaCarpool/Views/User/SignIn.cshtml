@@ -1,0 +1,52 @@
+﻿@model ConestogaCarpool.Models.User
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Conestoga Carpool</title>
+    <link rel="stylesheet" href="~/css/SharedLayoutStyle.css" />
+    <link rel="stylesheet" href="~/css/UserStyleSheet.css" />
+    <link rel="icon" href="~/images/logo.png" type="image/png" sizes="16x20">
+
+</head>
+
+<body>
+    <main>
+        <div class="allBodyLeft">
+            <h1>Welcome to Conestoga Carpool</h1>
+            <br />
+            <p class="tempData">@TempData["Message"]</p>
+
+            @if (TempData["Message"] == "Unverified Email")
+            {
+                <a asp-action="VerifyEmailFromSignIn">Verify Email</a>
+                <br /><br />
+            }
+            <form asp-controller="User">
+                <label asp-for="Username" class="textboxLabel">Username:</label>
+                <input asp-for="Username" name="Username" id="textBoxes" />
+                <span asp-validation-for="Username"></span>
+                <br />
+                <label asp-for="Password" class="textboxLabel">Password:</label>
+                <input asp-for="Password" type="password" id="textBoxes" />
+                <span asp-validation-for="Password"></span>
+                <br />
+
+                <div id="buttonGroup">
+                    <input type="submit" id="btnAllShared" value="Log In" />
+                    <a asp-action="Create" id="btnAllShared">New Account</a>
+                </div>
+            </form>
+        </div>
+    </main>
+    <footer id="footer">
+        <p>&copy; 2019 - Conestoga Carpool</p>
+    </footer>
+</body>
+</html>

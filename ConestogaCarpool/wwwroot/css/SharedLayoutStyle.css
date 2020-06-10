@@ -1,0 +1,280 @@
+﻿
+/* Shared Body */
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: sans-serif;
+    background-image: url(../images/carpool1.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.allBodyLeft {
+    margin: 10em 0 0 15em;
+}
+
+.transparentBack {
+    background-color: rgba(31, 40, 51, 0.75);
+    border-radius: 10%;
+    width: 80%;
+    padding: 4em 3em;
+}
+
+.tableBody {
+    text-align: center;
+    margin-top: 10em;
+}
+
+/* table displays */
+table {
+    margin: 0 auto;
+    text-align: center;
+    overflow: auto;
+    border: 1px solid #818181;
+    background-color: rgba(31, 40, 51, 0.75);
+}
+
+th {
+    background-color: rgb(31, 40, 51);
+}
+
+th, td {
+    padding: 15px;
+    text-align: center;
+    font-size: 1.5em;
+    color: white;
+}
+
+/* tooltip */
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    font-size: 0.7em;
+    width: 200px;
+    background-color: #818181;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 1em;
+    position: absolute;
+    z-index: 1;
+    top: -5px;
+    left: 105%;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+
+/* Shared Layout View */
+h1, h2 {
+    color: #66FCF1;
+}
+
+label, p, h3, h4 {
+    color: white;
+}
+
+h1 {
+    font-size: 2.8em;
+}
+
+h2 {
+    font-size: 2em;
+}
+
+h3 {
+    font-size: 1.5em;
+}
+
+h4 {
+    font-size: 1.3em;
+}
+
+a {
+    color: #45A29E;
+    text-decoration: none;
+    font-size: 1.2em;
+}
+
+/* side navbar */
+.sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 10%;
+    color: #398e31;
+    opacity: 0.9;
+}
+
+    .sidebar a {
+        padding: 8px 8px 8px 32px;
+        text-decoration: none;
+        font-size: 25px;
+        color: #818181;
+        display: block;
+        transition: 0.3s;
+    }
+
+        .sidebar a:hover {
+            color: #f1f1f1;
+        }
+
+    .sidebar .closebtn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 36px;
+        margin-left: 50px;
+    }
+
+.openbtn {
+    font-size: 20px;
+    cursor: pointer;
+    background-color: #FFFFFF;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+}
+
+    .openbtn:hover {
+        background-color: #444;
+    }
+
+.menu {
+    transition: margin-left .5s;
+    position: fixed;
+    top: 2em;
+    left: 2em;
+}
+
+    .menu span {
+        position: fixed;
+        color: #66FCF1;
+    }
+
+@media screen and (max-height: 450px) {
+    .sidebar {
+        padding-top: 15px;
+    }
+
+        .sidebar a {
+            font-size: 18px;
+        }
+}
+
+/* shared properties buttons */
+#btnAllShared {
+    background-color: rgba(31, 40, 51, 0.75);
+    color: rgba(255, 255, 255, 0.85);
+    border: 2px solid #45A29E;
+    text-align: center;
+    font-size: 1.2em;
+    display: inline-block;
+    padding: 20px 0;
+    margin: 2em 7em 2em 0;
+    text-decoration: none;
+    width: 12em;
+    font-weight: bold;
+}
+
+#btnAllShared:hover {
+    background-color: rgba(61, 150, 180, 0.40);
+    color: rgba(255, 255, 255, 0.75);
+    cursor: pointer;
+}
+
+/* not found images*/
+.notFound {
+    margin: 5% 0 0 25%;
+}
+
+/* Edit Icons*/
+#editIcon {
+    color: #45A29E;
+    padding-left: 2em;
+}
+
+/* Detail Views */
+.detailView {
+    text-align: left;
+}
+
+/* Text Boxes */
+#textBoxes {
+    width: 405px;
+    height: 1.6em;
+    margin-bottom: 1em;
+    font-size: 1.2em;
+    color: white;
+    border: 1px solid #818181;
+    background-color: rgba(31, 40, 51, 0.75);
+}
+
+#textBoxes:focus {
+    border: 1px solid #444;
+    background-color: rgba(31, 40, 51, 0.75);
+}
+
+#textBoxes:-webkit-autofill,
+#textBoxes:-webkit-autofill:hover,
+#textBoxes:-webkit-autofill:focus,
+#textBoxes:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px rgba(31, 40, 51, 0.75) inset !important;
+}
+
+#textBoxes:-webkit-autofill {
+    -webkit-text-fill-color: white !important;
+    background-color: rgba(31, 40, 51, 0.75);
+}
+
+.textboxLabel, .detailLabels {
+    width: 200px;
+    clear: left;
+    font-size: 1.2em;
+    float: left;
+}
+
+#textLabels {
+    font-weight: normal;
+    font-size: 1.2em;
+    text-align: right;
+}
+
+/* Temp Data Message*/
+.tempData {
+    color: #1d5012;
+    font-style: italic;
+    font-size: 1.3em;
+    font-weight: 500;
+}
+
+.allBodyLeft .tempData {
+    color: #549d2c;
+}
+
+hr {
+    color: #818181;
+    opacity: 0.75;
+    margin-left: 0 !important;
+}
+
+/* Footer */
+#footer {
+    text-align: center;
+    position: relative;
+    padding-top: 2em;
+    color: white !important;
+}
+

@@ -1,0 +1,64 @@
+﻿@model ConestogaCarpool.Models.Request
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="allBodyLeft">
+    <div class="transparentBack">
+        <h2>Are you sure you would like to send a request for this ride?</h2>
+        <hr />
+        <div class="row">
+            <div class="col-md-4">
+                <form asp-action="Create" asp-route-DriverEmail="@ViewBag.DriverEmail">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    <!-- Hidden Request Status Id -->
+                    <div class="form-group">
+                        <input asp-for="RequestStatusId" class="form-control" type="hidden" value="4" />
+                    </div>
+
+                    <!-- Hidden Post Id -->
+                    <div class="form-group">
+                        <input asp-for="PostId" class="form-control" type="hidden" value="@ViewBag.PostId" />
+                    </div>
+
+                    @*<div class="form-group">
+                            <h2>Are you sure you would like to send a request for this ride?</h2>
+                        </div>
+                        <br />
+                        <label class="detailLabels">
+                            @Html.DisplayNameFor(model => model.Post.Location):
+                        </label>
+                        <label id="textLabels">@Html.DisplayFor(model => model.Post.Location)</label>
+                        <br />
+
+                        <label class="detailLabels">
+                            @Html.DisplayNameFor(model => model.Post.Destination):
+                        </label>
+                        <label id="textLabels">@Html.DisplayFor(model => model.Post.Destination)</label>
+                        <br />
+
+                        <label class="detailLabels">
+                            @Html.DisplayNameFor(model => model.Post.Date):
+                        </label>
+                        <label id="textLabels">@Html.DisplayFor(model => model.Post.Date)</label>
+                        <br />
+
+                        <label class="detailLabels">
+                            @Html.DisplayNameFor(model => model.Post.Time):
+                        </label>
+                        <label id="textLabels">@Html.DisplayFor(model => model.Post.Time)</label>
+                        <br />*@
+
+                    <div class="form-group">
+                        <input type="submit" value="Yes" id="btnAllShared" class="btn btn-default" />
+                        <a asp-action="Index" id="btnAllShared">Back to Posts</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+

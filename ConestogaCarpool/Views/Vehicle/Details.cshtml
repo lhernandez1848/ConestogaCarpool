@@ -1,0 +1,52 @@
+﻿@model ConestogaCarpool.Models.Vehicle
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="allBodyLeft">
+    <div class="transparentBack">
+        <h2>
+            Vehicle Details
+            <a asp-action="Edit" asp-route-VehicleId="@Model.VehicleId"><i id="editIcon" class="fas fa-edit"></i></a>
+        </h2>
+
+        <hr />
+        <label class="detailLabels">
+            @Html.DisplayNameFor(model => model.Make):
+        </label>
+        <label id="textLabels">@Html.DisplayFor(model => model.Make)</label>
+        <br />
+
+        <label class="detailLabels">
+            @Html.DisplayNameFor(model => model.Model):
+        </label>
+        <label id="textLabels">@Html.DisplayFor(model => model.Model)</label>
+        <br />
+
+        <label class="detailLabels">
+            @Html.DisplayNameFor(model => model.Year):
+        </label>
+        <label id="textLabels">@Html.DisplayFor(model => model.Year)</label>
+        <br />
+
+        <label class="detailLabels">
+            @Html.DisplayNameFor(model => model.Colour):
+        </label>
+        <label id="textLabels">@Html.DisplayFor(model => model.Colour)</label>
+        <br />
+
+        <label class="detailLabels">
+            @Html.DisplayNameFor(model => model.Plate):
+        </label>
+        <label id="textLabels">@Html.DisplayFor(model => model.Plate)</label>
+        <br />
+        <br />
+        <hr />
+        <h3>Delete Vehicle</h3>
+        <br />
+        <a asp-action="Delete" asp-route-VehicleId="@Model.VehicleId" asp-route-UserId="@Model.UserId">Delete</a>
+        <br /><br />
+    </div>
+    <a asp-action="ListVehicles" id="btnAllShared">Back to Vehicle List</a>
+</div>

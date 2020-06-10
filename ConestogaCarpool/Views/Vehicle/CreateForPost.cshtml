@@ -1,0 +1,52 @@
+﻿@model ConestogaCarpool.Models.Vehicle
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="allBodyLeft">
+    <h2>Create Vehicle</h2>
+    <hr />
+    <br /><br />
+    <form asp-action="CreateForPost">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="Make" class="textboxLabel"></label>
+            <input asp-for="Make" id="textBoxes" />
+            <span asp-validation-for="Make" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Model" class="textboxLabel"></label>
+            <input asp-for="Model" id="textBoxes" />
+            <span asp-validation-for="Model" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Year" class="textboxLabel"></label>
+            <input asp-for="Year" id="textBoxes" />
+            <span asp-validation-for="Year" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Colour" class="textboxLabel"></label>
+            <input asp-for="Colour" id="textBoxes" />
+            <span asp-validation-for="Colour" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Plate" class="textboxLabel"></label>
+            <input asp-for="Plate" id="textBoxes" />
+            <span asp-validation-for="Plate" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Create" id="btnAllShared" class="btn btn-default" />
+            <a asp-controller="Driver" asp-action="Index" id="btnAllShared">Back to Driver Options</a>
+        </div>
+    </form>
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+<style>
+    .field-validation-error {
+        color: #3dd53e;
+    }
+</style>

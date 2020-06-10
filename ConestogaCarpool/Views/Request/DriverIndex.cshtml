@@ -1,0 +1,52 @@
+﻿@model IEnumerable<ConestogaCarpool.Models.Request>
+
+@{
+    ViewData["Title"] = "Driver Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="tableBody">
+    <h2>Pending Requests</h2>
+    <p class="tempData">@TempData["Message"]</p>
+    @if (TempData["Message"] == null)
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Passenger)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Post.Destination)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Post.Location)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Passenger.FirstName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Post.Destination)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Post.Location)
+                        </td>
+                        <td>
+                            <a asp-action="Accept" asp-route-RequestId="@item.RequestId" asp-route-PassengerEmail="@item.Passenger.Email">Accept</a> |
+                            <a asp-action="Decline" asp-route-RequestId="@item.RequestId" asp-route-PassengerEmail="@item.Passenger.Email">Decline</a>
+                        </td>
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>
+

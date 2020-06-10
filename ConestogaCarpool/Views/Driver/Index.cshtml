@@ -1,0 +1,38 @@
+﻿@model IEnumerable<ConestogaCarpool.Models.Driver>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="allBodyLeft">
+    @foreach (var item in Model)
+    {
+        <div id="driverInfo">
+            <h2>
+                Driving Information
+                <a asp-controller="Driver" asp-action="Edit" asp-route-DriverId="@item.DriverId" asp-route-UserId="@item.UserId">
+                    <i id="editIcon" class="fas fa-edit"></i>
+                </a>
+            </h2>
+            <br />
+
+            <label class="textboxLabel">Experience (in years):</label><label id="textLabels">  @item.Experience</label>
+            <br />
+            <label class="textboxLabel">Licence Level:</label><label id="textLabels"> @item.LicenceClass.LicenceClass1</label>
+        </div>
+        <br /><br />
+        <h3>What do you want to do today?</h3>
+
+        <div class="driverOptions">
+            <a asp-controller="Vehicle" asp-action="SelectVehicle" id="btnDriverOpt1" asp-route-list="no" asp-route-DriverId="@item.DriverId" asp-route-UserId="@item.UserId">Post</a>
+            <a asp-controller="Post" asp-action="DriverIndex" id="btnDriverOpt2" asp-route-DriverId="@item.DriverId" asp-route-UserId="@item.UserId">View Posts</a>
+            <a asp-controller="Vehicle" asp-action="ListVehicles" id="btnDriverOpt3" asp-route-list="yes" asp-route-DriverId="@item.DriverId" asp-route-UserId="@item.UserId">Vehicles</a>
+            <br />
+            <a asp-controller="Request" asp-action="DriverIndex" id="btnDriverOpt4" asp-route-DriverId="@item.DriverId" asp-route-UserId="@item.UserId">Requests</a>
+            <a asp-controller="Review" asp-action="DriverIndex" id="btnDriverOpt5" asp-route-DriverId="@item.DriverId" asp-route-UserId="@item.UserId">Reviews</a>
+            <a asp-controller="Ride" asp-action="DriverIndex" id="btnDriverOpt6" asp-route-DriverId="@item.DriverId" asp-route-UserId="@item.UserId">Ride History</a>
+        </div>
+    }
+</div>
+

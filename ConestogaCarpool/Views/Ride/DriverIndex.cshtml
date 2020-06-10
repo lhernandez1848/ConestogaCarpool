@@ -1,0 +1,65 @@
+﻿@model IEnumerable<ConestogaCarpool.Models.Ride>
+
+@{
+    ViewData["Title"] = "Driver Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="tableBody">
+    <h2>@ViewBag.Username's Rides</h2>
+
+    <p class="tempData">@TempData["Message"]</p>
+    @if (TempData["Message"] == null)
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.RideId)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Request.Passenger.Username)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Post.Location)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Post.Destination)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.RideStatus.RideStatusDescription)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.RideId)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Request.Passenger.Username)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Post.Location)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Post.Destination)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.RideStatus.RideStatusDescription)
+                        </td>
+
+                        @if (item.RideStatusId == 1)
+                        {
+                            <td>
+                                <a asp-controller="Ride" asp-action="Complete" asp-route-DriverId="@ViewBag.DriverId" asp-route-RideId=@item.RideId>Complete</a>
+                            </td>
+                        }
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>

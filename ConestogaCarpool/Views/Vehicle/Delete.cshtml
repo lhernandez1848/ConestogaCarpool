@@ -1,0 +1,49 @@
+﻿@model ConestogaCarpool.Models.Vehicle
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="allBodyLeft">
+    <div class="transparentBack">
+        <h2>Delete</h2>
+
+        <h3>Are you sure you want to delete this vehicle?</h3>
+
+        <hr />
+        <label class="detailLabels">
+            @Html.DisplayNameFor(model => model.Make):
+        </label>
+        <label style="font-weight: normal;">@Html.DisplayFor(model => model.Make)</label>
+        <br />
+
+        <label class="detailLabels">
+            @Html.DisplayNameFor(model => model.Model):
+        </label>
+        <label style="font-weight: normal;">@Html.DisplayFor(model => model.Model)</label>
+        <br />
+
+        <label class="detailLabels">
+            @Html.DisplayNameFor(model => model.Year):
+        </label>
+        <label style="font-weight: normal;">@Html.DisplayFor(model => model.Year)</label>
+        <br />
+
+        <label class="detailLabels">
+            @Html.DisplayNameFor(model => model.Colour):
+        </label>
+        <label style="font-weight: normal;">@Html.DisplayFor(model => model.Colour)</label>
+        <br />
+
+        <label class="detailLabels">
+            @Html.DisplayNameFor(model => model.Plate):
+        </label>
+        <label style="font-weight: normal;">@Html.DisplayFor(model => model.Plate)</label>
+        <br />
+    </div>
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="VehicleId" />
+        <input type="submit" value="Delete" id="btnAllShared" class="btn btn-default" />
+        <a asp-action="ListVehicles" id="btnAllShared">Back to List</a>
+    </form>
+</div>

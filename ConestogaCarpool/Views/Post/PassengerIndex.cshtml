@@ -1,0 +1,62 @@
+﻿@model IEnumerable<ConestogaCarpool.Models.Post>
+
+<div class="tableBody">
+    <h2>Available Drivers</h2>
+
+    <p class="tempData">@TempData["Message"]</p>
+    @if (TempData["Message"] == null)
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Driver.User.Username)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Location)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Destination)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Date)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Time)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            <div class="tooltip">
+                                <a asp-controller="Post" asp-action="SendRequest" asp-route-PostId="@item.PostId">
+                                    @Html.DisplayFor(modelItem => item.Driver.User.Username)
+                                </a>
+                                <span class="tooltiptext">Click for Details</span>
+                            </div>
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Location)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Destination)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Date)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Time)
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    { <a asp-controller="Post" asp-action="FindDriver" id="btnAllShared">Back to Find Driver</a>}
+
+</div>

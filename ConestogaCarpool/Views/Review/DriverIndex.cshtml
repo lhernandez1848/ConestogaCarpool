@@ -1,0 +1,70 @@
+﻿@model IEnumerable<ConestogaCarpool.Models.Review>
+
+@{
+    ViewData["Title"] = "DriverIndex";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="tableBody">
+
+    <h2>Driver's Reviews</h2>
+
+    <p class="tempData">@TempData["Message"]</p>
+    @if (TempData["Message"] == null)
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Ride.Request.Passenger.Username)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Ride.Post.Destination)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Ride.Post.Location)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Ride.Post.Date)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Rating)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Comment)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            <div class="tooltip">
+                                <a asp-action="Details" asp-route-ReviewId="@item.ReviewId">
+                                    @Html.DisplayFor(modelItem => item.Ride.Request.Passenger.Username)
+                                </a>
+                                <span class="tooltiptext">Click for Details</span>
+                            </div>
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Ride.Post.Destination)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Ride.Post.Location)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Ride.Post.Date)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Rating)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Comment)
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>

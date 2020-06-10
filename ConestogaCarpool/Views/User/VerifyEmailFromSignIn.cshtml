@@ -1,0 +1,43 @@
+﻿@{
+    ViewData["Title"] = "VerifyEmailFromSignIn";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Conestoga Carpool</title>
+    <link rel="stylesheet" href="~/css/SharedLayoutStyle.css" />
+    <link rel="stylesheet" href="~/css/UserStyleSheet.css" />
+    <link rel="icon" href="~/images/logo.png" type="image/png" sizes="16x20">
+
+</head>
+
+<body>
+    <main>
+        <div class="allBodyLeft">
+            <div id="verEmailForm">
+                <h2>Verify Email</h2>
+                <p class="tempData">@TempData["Message"]</p>
+                <br />
+                <div class="row">
+                    <div class="col-md-4">
+                        <form asp-action="VerifyEmailFromSignIn">
+                            <label for="UserEmail" class="textboxLabel">Enter email: </label>
+                            <input name="UserEmail" class="form-control" id="textBoxes" />
+                            <div class="form-group">
+                                <input type="submit" value="Send Email" id="btnAllShared" />
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer id="footer">
+        <p>&copy; 2019 - Conestoga Carpool</p>
+    </footer>
+
+</body>
+</html>

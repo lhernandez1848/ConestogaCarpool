@@ -1,0 +1,63 @@
+﻿@model IEnumerable<ConestogaCarpool.Models.Ride>
+
+@{
+    ViewData["Title"] = "Passenger Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="tableBody">
+    <h2>@ViewBag.Username's Rides</h2>
+
+    <p class="tempData">@TempData["Message"]</p>
+    @if (TempData["Message"] == null)
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.RideId)
+                    </th>
+                    <th>
+                        Driver
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PostId)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.RequestId)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.RideStatus.RideStatusDescription)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            <div class="tooltip">
+                                <a asp-controller="Ride" asp-action="Details" asp-route-RideId="@item.RideId">
+                                    @Html.DisplayFor(modelItem => item.RideId)
+                                </a>
+                                <span class="tooltiptext">Click for Details</span>
+                            </div>
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Post.Driver.User.Username)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PostId)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.RequestId)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.RideStatus.RideStatusDescription)
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>

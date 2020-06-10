@@ -1,0 +1,38 @@
+﻿@model ConestogaCarpool.Models.Request
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="allBodyLeft">
+    <div class="transparentBack">
+        <h2>Delete</h2>
+
+        <h3>Are you sure you want to cancel this request?</h3>
+        <div>
+            <br />
+            <label class="detailLabels">
+                @Html.DisplayNameFor(model => model.Passenger):
+            </label>
+            <label id="textLabels">@Html.DisplayFor(model => model.Passenger.Username)</label>
+            <br />
+
+            <label class="detailLabels">
+                @Html.DisplayNameFor(model => model.Post):
+            </label>
+            <label id="textLabels">@Html.DisplayFor(model => model.Post.Destination)</label>
+            <br />
+
+            <label class="detailLabels">
+                @Html.DisplayNameFor(model => model.RequestStatus):
+            </label>
+            <label id="textLabels">@Html.DisplayFor(model => model.RequestStatus.RequestStatusDescription)</label>
+            <br />
+        </div>
+        <form asp-action="Delete">
+            <input type="hidden" asp-for="RequestId" />
+            <input type="submit" value="Delete" id="btnAllShared" class="btn btn-default" />
+        </form>
+    </div>
+</div>

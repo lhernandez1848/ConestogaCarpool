@@ -1,0 +1,57 @@
+﻿@model ConestogaCarpool.Models.Post
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="allBodyLeft">
+    <h2>Create Post</h2>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <!-- Hidden PostStatusID -->
+                <div class="form-group">
+                    <input asp-for="PostStatusId" class="form-control" type="hidden" value="1" />
+                </div>
+                
+                <div class="form-group">
+                    <label asp-for="Destination" class="textboxLabel"></label>
+                    <input asp-for="Destination" id="textBoxes" />
+                    <span asp-validation-for="Destination" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Location" class="textboxLabel"></label>
+                    <input asp-for="Location" id="textBoxes" />
+                    <span asp-validation-for="Location" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Date" class="textboxLabel"></label>
+                    <input asp-for="Date" type="Date" id="textBoxes" />
+                    <span asp-validation-for="Date" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Time" class="textboxLabel"></label>
+                    <input asp-for="Time" type="Time" id="textBoxes" />
+                    <span asp-validation-for="Time" class="text-danger"></span>
+                </div>
+
+                <div id="buttonGroup">
+                    <input type="submit" value="Create" id="btnAllShared" class="btn btn-default" />
+                    <a asp-controller="Vehicle" asp-action="SelectVehicle" id="btnAllShared">Back to Vehicles</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<style>
+    .field-validation-error {
+        color: #3dd53e;
+    }
+</style>

@@ -1,0 +1,70 @@
+﻿@model IEnumerable<ConestogaCarpool.Models.Request>
+
+@{
+    ViewData["Title"] = "PassengerIndex";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="tableBody">
+    <h2>@ViewBag.Username's Requests</h2>
+
+    <p class="tempData">@TempData["Message"]</p>
+    @if (TempData["Message"] == null)
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Post.Driver.User.Username)
+                    </th>
+                    <!--
+                    <th>
+                        @Html.DisplayNameFor(model => model.Post)
+                    </th>
+                    -->
+                    <th>
+
+                        @Html.DisplayNameFor(model => model.Post.Date)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Post.Time)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Post.Destination)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.RequestStatus)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Post.Driver.User.Username)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Post.Date)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Post.Time)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Post.Destination)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.RequestStatus.RequestStatusDescription)
+                        </td>
+                        @if (item.RequestStatusId == 4)
+                        {
+                            <td>
+                                <a asp-action="Delete" asp-route-RequestId="@item.RequestId">Cancel Request</a>
+                            </td>
+                        }
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>

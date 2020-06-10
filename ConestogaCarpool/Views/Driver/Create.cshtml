@@ -1,0 +1,39 @@
+﻿@model ConestogaCarpool.Models.Driver
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="allBodyLeft">
+    <h2>Become a Driver</h2>
+
+    <h4>To access driver options you must first register as a driver</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <p>Please enter the following information</p>
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="LicenceClassId" class="textboxLabel">Licence Level:</label>
+                    <select asp-for="LicenceClassId" id="textBoxes" asp-items="ViewBag.LicenceClassId"></select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Experience" class="textboxLabel">Experience (in years):</label>
+                    <input asp-for="Experience" id="textBoxes" />
+                    <span asp-validation-for="Experience" class="text-danger"></span>
+                </div>
+                <div class="buttonGroup">
+                    <input type="submit" value="Create" id="btnAllShared" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<style>
+    .field-validation-error {
+        color: #3dd53e;
+    }
+</style>

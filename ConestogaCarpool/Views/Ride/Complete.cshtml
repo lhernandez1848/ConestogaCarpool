@@ -1,0 +1,66 @@
+﻿@model ConestogaCarpool.Models.Ride
+
+@{
+    ViewData["Title"] = "Complete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="allBodyLeft">
+    <form asp-action="Complete" asp-route-driverId="@ViewBag.DriverId">
+        <div class="transparentBack">
+
+            <h2>Is this ride completed?</h2>
+            <hr />
+            <div class="hideForm">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="RideId" />
+
+                <!-- Hidden RideStatusID -->
+                <div class="form-group">
+                    <input asp-for="RideStatusId" class="form-control" type="hidden" value="2" />
+                </div>
+
+                <!-- Hidden PostID -->
+                <div class="form-group">
+                    <input asp-for="PostId" class="form-control" type="hidden" value="@ViewBag.PostId" />
+                </div>
+
+                <!-- Hidden RequestID -->
+                <div class="form-group">
+                    <input asp-for="RequestId" class="form-control" type="hidden" value="@ViewBag.RequestId" />
+                </div>
+            </div>
+
+            <label class="detailLabels">
+                Passenger:
+            </label>
+            <label id="textLabels">@Html.DisplayFor(model => model.Request.Passenger.Username)</label>
+            <br />
+
+            <label class="detailLabels">
+                @Html.DisplayNameFor(model => model.Post.Destination):
+            </label>
+            <label id="textLabels">@Html.DisplayFor(model => model.Post.Destination)</label>
+            <br />
+
+            <label class="detailLabels">
+                @Html.DisplayNameFor(model => model.Post.Location):
+            </label>
+            <label id="textLabels">@Html.DisplayFor(model => model.Post.Location)</label>
+            <br />
+
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Yes" id="btnAllShared" />
+            <a asp-action="DriverIndex" asp-route-DriverId="@ViewBag.DriverId" id="btnAllShared">Back to List</a>
+        </div>
+    </form>
+
+    <style>
+        .hideForm {
+            display: none;
+        }
+    </style>
+
+</div>
+

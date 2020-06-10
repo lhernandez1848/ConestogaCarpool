@@ -1,0 +1,46 @@
+﻿@model ConestogaCarpool.Models.Ride
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="allBodyLeft">
+
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Create">
+                <div class="transparentBack">
+                    <h2>You have accepted the request.</h2>
+                    <hr />
+
+                    <p>
+                        Your passenger has been notified of your confirmation via e-mail.
+                        They will be expecting you in front of the campus by the specified time.
+                    </p>
+
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    <!-- Hidden RideStatusID -->
+                    <div class="form-group">
+                        <input asp-for="RideStatusId" class="form-control" type="hidden" value="1" />
+                    </div>
+
+                    <!-- Hidden PostID -->
+                    <div class="form-group">
+                        <input asp-for="PostId" class="form-control" type="hidden" value="@ViewBag.PostId" />
+                    </div>
+
+                    <!-- Hidden RequestID -->
+                    <div class="form-group">
+                        <input asp-for="RequestId" class="form-control" type="hidden" value="@ViewBag.RequestId" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Back to Home" id="btnAllShared" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+

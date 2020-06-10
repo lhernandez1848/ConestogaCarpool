@@ -1,0 +1,63 @@
+﻿@model ConestogaCarpool.Models.Request
+
+@{
+    ViewData["Title"] = "Accept";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="allBodyLeft">
+
+    <form asp-action="Accept" asp-route-PassengerEmail="@ViewBag.PassengerEmail">
+        <div class="transparentBack">
+            <h2>Are you sure you would like to accept this request?</h2>
+
+            <hr /><br />
+            <div class="hideForm">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="RequestId" />
+                <div class="form-group">
+                    <label asp-for="RequestStatusId" class="textboxLabel"></label>
+                    <select asp-for="RequestStatusId" id="textBoxes" asp-items="ViewBag.RequestStatusId"></select>
+                    <span asp-validation-for="RequestStatusId" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="PassengerId" class="textboxLabel"></label>
+                    <select asp-for="PassengerId" id="textBoxes" asp-items="ViewBag.PassengerId"></select>
+                    <span asp-validation-for="PassengerId" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Post.PostStatusId" class="textboxLabel"></label>
+                    <select asp-for="Post.PostStatusId" id="textBoxes" asp-items="ViewBag.PostStatusId"></select>
+                    <span asp-validation-for="Post.PostStatusId" class="text-danger"></span>
+                </div>
+            </div>
+
+            <label class="detailLabels">
+                @Html.DisplayNameFor(model => model.Passenger):
+            </label>
+            <label id="textLabels">@Html.DisplayFor(model => model.Passenger.Username)</label>
+            <br />
+
+            <label class="detailLabels">
+                @Html.DisplayNameFor(model => model.Post.Destination):
+            </label>
+            <label id="textLabels">@Html.DisplayFor(model => model.Post.Destination)</label>
+            <br />
+
+            <label class="detailLabels">
+                @Html.DisplayNameFor(model => model.Post.Location):
+            </label>
+            <label id="textLabels">@Html.DisplayFor(model => model.Post.Location)</label>
+            <br />
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Accept" id="btnAllShared" />
+        </div>
+
+    </form>
+
+    <style>
+        .hideForm {
+            display: none;
+        }
+    </style>
+</div>

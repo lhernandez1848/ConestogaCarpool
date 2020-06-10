@@ -1,0 +1,72 @@
+﻿@model ConestogaCarpool.Models.Post
+
+@{
+    ViewData["Title"] = "Post Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="allBodyLeft">
+    <div class="transparentBack">
+        <h2>
+            Post Details
+            <a asp-action="Edit" asp-route-PostId="@Model.PostId"><i id="editIcon" class="fas fa-edit"></i></a>
+        </h2>
+
+        <div class="detailView">
+            <hr />
+
+            <label class="detailLabels">
+                @Html.DisplayNameFor(model => model.Destination):
+            </label>
+            <label id="textLabels">@Html.DisplayFor(model => model.Destination)</label>
+            <br />
+
+            <label class="detailLabels">
+                @Html.DisplayNameFor(model => model.Location):
+            </label>
+            <label id="textLabels">@Html.DisplayFor(model => model.Location)</label>
+            <br />
+
+            <label class="detailLabels">
+                @Html.DisplayNameFor(model => model.Date):
+            </label>
+            <label id="textLabels">@Html.DisplayFor(model => model.Date)</label>
+            <br />
+
+            <label class="detailLabels">
+                @Html.DisplayNameFor(model => model.Time):
+            </label>
+            <label id="textLabels">@Html.DisplayFor(model => model.Time)</label>
+            <br />
+
+            @if (Model.Driver.User.Username != ViewBag.Username)
+            {
+                <label class="detailLabels">
+                    @Html.DisplayNameFor(model => model.Driver):
+                </label>
+                <label id="textLabels">@Html.DisplayFor(model => model.Driver.User.Username)</label>
+                <br />
+            }
+
+            <label class="detailLabels">
+                @Html.DisplayNameFor(model => model.PostStatus):
+            </label>
+            <label id="textLabels">@Html.DisplayFor(model => model.PostStatus.PostStatusDescription)</label>
+            <br />
+
+            <label class="detailLabels">
+                @Html.DisplayNameFor(model => model.Vehicle):
+            </label>
+            <label id="textLabels">@Html.DisplayFor(model => model.Vehicle.Colour)</label>
+            <br />
+            <hr />
+            <h3>Delete Post</h3>
+            <br />
+            <a asp-action="Delete" asp-route-PostId="@Model.PostId">Delete</a>
+
+        </div>
+        <div>
+            <a asp-action="DriverIndex" asp-route-DriverId="@ViewBag.UserId" id="btnAllShared">Back to Posts</a>
+        </div>
+    </div>
+</div>
